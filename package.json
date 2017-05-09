@@ -1,0 +1,20 @@
+{
+	"name": "cubed",
+	"description": "voxel engine prototype in D",
+	"copyright": "Copyright © 2014, marcpmichel",
+	"authors": ["marcpmichel"],
+	"dependencies": {
+		"derelict-glfw3": "~master",
+		"derelict-gl3": "~master",
+		"gl3n": "~master"
+	},
+	"importPaths": ["."],
+	"configurations": [
+		{
+			"name": "release",
+			"versions": ["release"],
+			"targetType": "executable"
+		}
+	]
+}
+

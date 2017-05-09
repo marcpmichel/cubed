@@ -1,0 +1,25 @@
+{
+	"name": "run_specs",
+	"description": "specs",
+	"copyright": "Copyright © 2014, marcpmichel",
+	"authors": ["marcpmichel"],
+	"targetPath": "..",
+	"workingDirectory":"..",
+	"dependencies": {
+		"specd": "~master",
+		"derelict-glfw3": "~master",
+		"derelict-gl3": "~master",
+		"gl3n": "~master"
+	},
+	"importPaths": ["."],
+	"configurations" : [
+		{
+			"name": "run_specs",
+			"buildOptions": [ "unittests" ],
+			"versions": ["specrunner"],
+			"targetType": "executable",
+			"sourcePaths": ["../source", "../specs"],
+			"excludedSourceFiles": ["../source/main.d"]
+		}
+	]
+}
