@@ -1,7 +1,7 @@
 module inputmanager;
 
 import derelict.glfw3.glfw3;
-import derelict.opengl3.gl3;
+import derelict.opengl;
 import broadcaster;
 import std.stdio: writeln;
 
@@ -33,6 +33,7 @@ struct InputMessage {
 class InputManager: Broadcaster!(InputMessage) {
 
 	GLFWwindow* window;
+    double mouseX, mouseY;
 
 	this( GLFWwindow* a_window ) {
 		window = a_window;
@@ -42,8 +43,11 @@ class InputManager: Broadcaster!(InputMessage) {
 		// glfwSetCursorPosCallback( window, &MouseEventManager.mouse_moved );
 		//glfwSetMouseButtonCallback( window, &InputManager.mouse_button_event );
 		//glfwSetScrollCallback( window, &InputManager.mouse_scroll_event );
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-		glfwSetCursorPos(window, 400/*Viewport.WIDTH/2*/, 300/*Viewport.HEIGHT/2*/);
+		// glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		// glfwSetCursorPos(window, 400/*Viewport.WIDTH/2*/, 300/*Viewport.HEIGHT/2*/);
+
+		glfwGetCursorPos(window, &mouseX, &mouseY);
 	}
 
 	bool pressed(int key) {
@@ -57,8 +61,15 @@ class InputManager: Broadcaster!(InputMessage) {
 	void update() {
 		double mx, my;
 		glfwGetCursorPos(window, &mx, &my);
-		if( mx != 400.0 ) broadcast( InputMessage(InputAction.YAW, mx - 400.0 ));
-		if( my != 300.0 ) broadcast( InputMessage(InputAction.PITCH, my - 300.0 ));
+    
+    	double dx = (mouseX - mx) / 1.0;
+    	double dy = (mouseY - my) / 1.0;
+
+    	mouseX = mx;
+    	mouseY = my;
+
+		if( dx != 0 ) broadcast( InputMessage(InputAction.YAW, dx ));
+		if( dy != 0 ) broadcast( InputMessage(InputAction.PITCH, dy ));
 
 		if( pressed(GLFW_KEY_LEFT_SHIFT) ) {
 			if( pressed(GLFW_KEY_W)) broadcast( InputMessage(InputAction.MOVE_FORWARD_QUICK) );
@@ -80,7 +91,6 @@ class InputManager: Broadcaster!(InputMessage) {
 		if( pressed(GLFW_KEY_ESCAPE) )
 			glfwSetWindowShouldClose(window, GL_TRUE);
 
-		glfwSetCursorPos(window, 400/*Viewport.WIDTH/2*/, 300/*Viewport.HEIGHT/2*/);
 	}
 
 }

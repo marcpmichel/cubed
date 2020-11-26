@@ -5,6 +5,7 @@ import gl3n.linalg;
 import broadcaster;
 import inputmanager;
 import derelict.glfw3.glfw3;
+import std.math;
 
 
 interface Camera {

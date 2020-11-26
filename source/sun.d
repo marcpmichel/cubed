@@ -1,6 +1,6 @@
 
 import gl3n.linalg;
-import std.math: fmod;
+import std.math: fmod, PI, cos, sin;
 
 class Sun {
 

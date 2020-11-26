@@ -1,0 +1,25 @@
+{
+	"authors": [
+		"David Herberth"
+	],
+	"configurations": [
+		{
+			"name": "library",
+			"targetType": "staticLibrary"
+		}
+	],
+	"copyright": "Copyright © 2011-2015, David Herberth",
+	"description": "OpenGL Maths for D (not glm for D but better).",
+	"homepage": "http://dav1dde.github.com/gl3n/",
+	"importPaths": [
+		"."
+	],
+	"license": "MIT",
+	"name": "gl3n",
+	"sourcePaths": [
+		"gl3n"
+	],
+	"targetName": "gl3n",
+	"targetType": "staticLibrary",
+	"version": "1.3.1"
+}

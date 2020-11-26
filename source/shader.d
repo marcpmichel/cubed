@@ -1,6 +1,7 @@
 module shader;
 
-import derelict.opengl3.gl3;
+// import derelict.opengl3.gl3;
+import derelict.opengl;
 import std.file;
 import std.stdio;
 import std.algorithm;

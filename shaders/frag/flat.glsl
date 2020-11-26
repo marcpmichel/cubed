@@ -1,4 +1,7 @@
-#version 120
+#version 150
+#define varying in
+out vec4 oColor;
+#define gl_FragColor oColor
 
 varying vec3 pos;
 uniform vec3 in_color;

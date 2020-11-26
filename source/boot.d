@@ -1,7 +1,7 @@
 
 import std.stdio: writeln;
 import derelict.glfw3.glfw3;
-import derelict.opengl3.gl3;
+import derelict.opengl;
 import inputmanager;
 import renderer;
 import scene;
@@ -22,6 +22,12 @@ void init() {
 
 	if (!glfwInit()) return;
 
+  // force gl version to 3.2
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+  
 	window = glfwCreateWindow(Viewport.WIDTH, Viewport.HEIGHT, "CubeD", null, null);
 
 	if (!window) { glfwTerminate(); return; }
@@ -35,8 +41,8 @@ void init() {
 	writeln( "GLversion :", glver);
 
 	theRenderer = new Renderer();
-	//theScene = new CSGScene();
-	//theScene = new TestScene();
+	// theScene = new CSGScene();
+	// theScene = new TestScene();
 	theScene = new VoxelScene();
 
 }

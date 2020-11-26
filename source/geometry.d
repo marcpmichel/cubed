@@ -1,6 +1,7 @@
 
 module geometry;
-import derelict.opengl3.gl3;
+// import derelict.opengl3.gl3;
+import derelict.opengl;
 import std.math;
 import std.stdio;
 import gl3n.linalg;

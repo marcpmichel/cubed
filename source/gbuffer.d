@@ -1,5 +1,6 @@
 
-import derelict.opengl3.gl3;
+// import derelict.opengl3.gl3;
+import derelict.opengl;
 
 class GBuffer {
 

@@ -1,5 +1,5 @@
 
-import derelict.opengl3.gl3;
+import derelict.opengl;
 import program;
 import shader;
 import gl3n.linalg;
