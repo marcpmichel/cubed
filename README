@@ -1,0 +1,9 @@
+cubed
+=====
+
+Micro 3D engine in D.
+
+3 scenes are available.
+select the scene by commenting/uncommenting lines instancing theScene in boot.d
+
+
