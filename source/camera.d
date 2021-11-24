@@ -166,7 +166,7 @@ class FPCamera: BaseCamera, Receiver!(InputMessage) {
 	}
 
 	void update_target() {
-		mat4 viewmat = mat4.identity.rotatex(pitch).rotatey(yaw);
+		mat4 viewmat = mat4.identity.rotatey(yaw).rotatex(pitch);
 		_target = _pos + (forward * viewmat).xyz;
 		update_matrix();
 	}
@@ -187,7 +187,7 @@ class FlyCamera: FPCamera {
 	}
 
 	override void update_pos() {
-		mat4 movemat = mat4.identity.rotatex(pitch).rotatey(yaw);
+		mat4 movemat = mat4.identity.rotatey(yaw).rotatex(pitch);
 		_pos += ( move * movemat ).xyz;
 	}
 

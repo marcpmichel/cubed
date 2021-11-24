@@ -68,8 +68,8 @@ class InputManager: Broadcaster!(InputMessage) {
     	mouseX = mx;
     	mouseY = my;
 
-		if( dx != 0 ) broadcast( InputMessage(InputAction.YAW, dx ));
 		if( dy != 0 ) broadcast( InputMessage(InputAction.PITCH, dy ));
+		if( dx != 0 ) broadcast( InputMessage(InputAction.YAW, dx ));
 
 		if( pressed(GLFW_KEY_LEFT_SHIFT) ) {
 			if( pressed(GLFW_KEY_W)) broadcast( InputMessage(InputAction.MOVE_FORWARD_QUICK) );

@@ -13,7 +13,7 @@ Scene theScene;
 Renderer theRenderer;
 InputManager theInputManager;
 
-enum Viewport { WIDTH = 800, HEIGHT = 600 };
+enum Viewport { WIDTH = 1280, HEIGHT = 720 };
 GLFWwindow* window;
 
 void init() {
